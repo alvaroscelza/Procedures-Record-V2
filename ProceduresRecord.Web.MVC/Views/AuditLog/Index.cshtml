@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ProceduresRecord.Web.MVC.Models.LogEntry>
+
+@{
+    ViewBag.Title = "Log de Auditoría";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="input-group">
+            @Html.DropDownList("SearchOptions", (IEnumerable<SelectListItem>)ViewBag.SearchOptions, new { @id = "searchOptions", @class = "selectpicker" })
+            @Html.TextBox("SearchValue", null, new { @id = "inputLogEntriesSearch", @class = "form-control hundred-Per-Cent-Max-Width", @placeholder = "Buscar...", @type = "text" })
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+        </div>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTime)
+        </td>
+    </tr>
+}
+
+</table>
+
+<!-- Javascript Documents .js -->
+<script type="text/javascript" src="~/Scripts/AuditLog/searchOptions.js"></script>

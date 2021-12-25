@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Acerca de";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel-body">
+    <address class="col-md-offset-1">
+        <strong>Alvaro Andrés Rodríguez Scelza</strong> <br>
+
+        Estudiante de Ingeniería en Sistemas, Universidad ORT<br>
+        Ayudante de Ingeniero en Sistemas (MEC) <br>
+        Agente de Dirección Nacional de Migración <br>
+        Departamento de Informática <br>
+        <br>
+        ¿Sugerencias, contrataciones o consultas sobre la página? <br>
+        <strong>Contacto:</strong>   <a href="mailto:alvaroscelza@gmail.com">alvaroscelza@gmail.com</a>
+        <br>
+        <br>
+        A.A.R.S. Loaderon - 15/02/2017
+    </address>
+
+    <br>
+
+    <p>
+        <h3>Track de Versionado</h3> 
+
+        El sistema se ofrece gratis a Migración en calidad de usufructo.<br>
+        Sin embargo, se realizó un análisis del costo total del proyecto, para tener como<br>
+        referencia su precio de mercado en comparación con otros sistemas de similar porte.<br>
+        Costo aproximado del proyecto al momento: 1.791 dólares (52.118,1 pesos uruguayos al 14/02/17).
+        
+        <br>
+        <br>
+
+        <h4>Versión 2</h4>
+
+        <dl>
+            <dt>Versión 2.0</dt>
+            <dd>-La programación se pasa a C# alcanzando un mejor nivel de madurez y expertise,</dd>
+            <dd>se obtienen además las ventajas de la Programación Orientada a Objetos.</dd>
+            <dd>-Mejora drástica en seguridad y recuperación ante fallas y errores.</dd>
+            <dd>-Se mejora la seguridad de acceso a BD (Las consultas a BD son más seguras y evitan SQL Injection).</dd>
+            <dd>-Se mejora el manejo de errores y muestra de los mismos al usuario.</dd>
+            <dd>-Se separa en dos páginas lo que antes era "Ayuda", ahora existen "Ayuda y Tutoriales" y "Acerca de".</dd>
+            <dd>-Perfil ya no es una tabla de BD, sino un Enum, reduciendo así el tamaño y consultas necesarias</dd>
+            <dd>para obtener el perfil de un usuario... además, se controla de esta forma que</dd>
+            <dd>los perfiles sean únicos y no repetidos en BD.</dd>
+            <dd>-Se agrega tamaño máximo a las columnas de la tabla de LogEntries.</dd>
+            <dd>-Se agrega pagina principal con logo de migracion y mensaje de agradecimiento de Autor.</dd>
+            <dd>-Al crear, modificar o eliminar correctamente una entidad, se redirecciona automáticamente a su tabla de índice.</dd>
+            <dd>-Se mejoraron enormemente los mensajes de error.</dd>
+            <dd>-Énfasis en la mejora del diseño de la página.</dd>
+            <dd>-Se mejora la barra buscadora de personas.</dd>
+            <dd>-Al intentar eliminar un país con personas que lo tienen como lugar de nacimiento o nacionalidad</dd>
+            <dd>ya no se permitirá y mostrará un cartel informando la razón.</dd>
+            <dd>-Al eliminar cualquier entidad no sólo se solicita confirmación como ya se hacía antes,</dd>
+            <dd>sino que se muestra una página intermedia con todos los datos de la entidad para confirmar.</dd>
+            <dd>-Se mejora particularmente el diseño de la Navigation Bar.</dd>
+            <dd>-Se aumenta la mantenibilidad del sistema.</dd>
+            <dd>-Se aumenta la Eficiencia del sistema.</dd>
+            <dd>-Se aumenta la Usabilidad del sistema.</dd>
+            <dd>-Se aumenta la Confiabilidad del sistema.</dd>
+            <dd>-Se aumenta la Funcionalidad del sistema.</dd>
+            <dd>-Se cumplen mejor los estándares de codificación, como mantener un mismo estilo de mayus-minus</dd>
+            <dd>en nombres de métodos o variables.</dd>
+            <dd>-Se eliminan los mensajes de no cumplimiento del contrato, por ser el código</dd>
+            <dd>propiedad privada del autor bajo su entera administración.</dd>
+            <dd>-Se resolvieron muchos bugs menores.</dd>
+            <dd>-Se agrega el nombre de usuario logueado a la navigation bar.</dd>
+            <dd>-Se agrega la posibilidad de deslogueo a la navigation bar.</dd>
+            <dd>-Se agrega control de unicidad en nombre de País.</dd>
+            <dd>-Se minimiza la cantidad de consultas al servidor de BD, reduciendo la carga del mismo.</dd>
+            <dd>-Se realizan las validaciones de ABM de entidades con js, para reducir drásticamente la carga del servidor.</dd>
+            <dd>-Control de unicidad en nombre de usuario.</dd>
+            <dd>-Mejora en la disposicion del track de versionado.</dd>
+            <dd>-Mejora en Testing realizado, dejando de ser una versión Beta.</dd>
+        </dl>
+
+        <br>
+
+        <h4>Versión 1</h4>
+
+        <dl>
+            <dt>Versión 1.2 Beta</dt>
+            <dd>-Se añade Pie de página.</dd>
+            <dd>-Se corrige que al modificar el nombre de un País, </dd>
+            <dd>se modifique dicho nombre en todas las Personas que lo tienen como Foreign Key.</dd>
+            <dd>-Se corrige que aparezca el nav bar al modificar un País.</dd>
+            <dd>-Se corrige que aparezca el nav bar al modificar o crear un Usuario.</dd>
+            <dd>-Se crea un nuevo mensaje de error para controlar errores imprevistos.</dd>
+            <dd>-Se agregan algunas mejores en seguridad.</dd>
+
+            <dt>Versión 1.1 Beta</dt>
+            <dd>-Eliminada funcionalidad de autenticación automática.</dd>
+            <dd>-Implementación de Autenticación con usuario y contraseña.</dd>
+            <dd>-Mejora de display de Número de Expediente de persona en Página Personas.</dd>
+            <dd>-Instalación Bootstrap v3.3.6.</dd>
+            <dd>-Actualización a Smarty v3.</dd>
+            <dd>-Implementación de herencia en templates utilizando Smarty v3.</dd>
+            <dd>-Refactoring de templates de Smarty: Generalización de código común a _Layout.</dd>
+            <dd>-Implementación de Track de Versionado.</dd>
+            <dd>-Implementación de diseño en base a bootstrap v3.3.6.</dd>
+            <dd>-Se eliminan los archivos de diseño utilizados hasta ahora.</dd>
+            <dd>-Se eliminan MainPage.php junto a su .tpl. Ahora la página principal es la tabla de personas.</dd>
+            
+            <dt>Versión 1.0 Beta</dt>
+            <dd>-Core de funcionalidad solicitada para Registro de Trámites terminada.</dd>
+            <dd>-Se comienzan pruebas del sistema.</dd>
+        </dl>
+    </p>
+</div>

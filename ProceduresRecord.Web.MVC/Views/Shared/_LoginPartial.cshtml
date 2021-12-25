@@ -1,0 +1,23 @@
+﻿@using ProceduresRecord.Web.MVC.Models
+@{User loggedUser = (User)Session["user"];}
+
+@if (@Session["user"] != null)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hola " + loggedUser.Name + "!", "Index", "Home")
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Desconectar</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Loguearse", "Login", "Account")</li>
+    </ul>
+}

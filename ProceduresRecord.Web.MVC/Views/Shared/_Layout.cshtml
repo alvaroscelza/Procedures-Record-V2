@@ -1,0 +1,71 @@
+﻿@using ProceduresRecord.Web.MVC.Models
+@{User loggedUser = (User)Session["user"];}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - Registro de Trámites</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Registro de Trámites">
+    <meta name="keywords" content="registro, trámites, tramites, uruguay, alvaro, rodriguez, rodríguez, scelza">
+    <meta name="author" content="Ayudante de Ingeniero en Sistemas - Alvaro Andrés Rodríguez Scelza">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="@Url.Content("~/Images/logo.jpg")">
+
+    <!-- Design Documents .css -->
+    @Styles.Render("~/Content/css")
+
+    <!-- Javascript Documents .js -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Registro de Trámites", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (loggedUser != null)
+                    {
+                        <li>@Html.ActionLink("Personas", "Index", "People")</li>
+                        if (loggedUser.Profile == Profiles.Administrador)
+                        {
+                            <li>@Html.ActionLink("Países", "Index", "Countries")</li>
+                            <li>@Html.ActionLink("Usuarios", "Index", "Users")</li>
+                            <li>@Html.ActionLink("Log de Auditoría", "Index", "AuditLog")</li>
+                        }
+                        <li>
+                            @if (loggedUser.Name == "Loaderon")
+                            {
+                            <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Comandante<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Borrar Base de Datos", "DeleteDataBase", "Commander")</li>
+                                <li>@Html.ActionLink("Parámetros de Programa", "ProgramParameters", "Commander")</li>
+                            </ul>
+                            }
+                        </li>
+                        <li>@Html.ActionLink("Ayuda y Tutoriales", "Help", "Home")</li>
+                    }
+                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Registro de Trámites - Versión 2.0 </p>
+        </footer>
+    </div>
+</body>
+</html>

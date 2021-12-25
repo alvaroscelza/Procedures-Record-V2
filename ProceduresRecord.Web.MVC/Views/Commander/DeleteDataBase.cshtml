@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Borrar Base de Datos";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("DeleteDataBaseConfirmed", "Commander"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        Seguro!?? Con esto borras toda la Base de Datos y no puede deshacerse...
+
+        <br />
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Confirmar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

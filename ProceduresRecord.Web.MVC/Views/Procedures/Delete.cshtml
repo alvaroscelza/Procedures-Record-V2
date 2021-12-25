@@ -1,0 +1,39 @@
+﻿@model ProceduresRecord.Web.MVC.Models.Procedure
+
+@{
+    ViewBag.Title = "Eliminar Trámite";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+
+    @* Remember: Html.BeginForm gets the id from the URI, so no need to use a hidden id field *@
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirmar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver a la Lista", "Index", new { personId = Model.PersonId })
+        </div>
+    }
+</div>

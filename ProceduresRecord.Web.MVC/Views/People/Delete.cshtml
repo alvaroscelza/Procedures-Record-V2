@@ -1,0 +1,110 @@
+﻿@model ProceduresRecord.Web.MVC.Models.Person
+
+@{
+    ViewBag.Title = "Eliminar Persona";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Names)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Names)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surnames)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surnames)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecordNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecordNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecordYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecordYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthPlace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthPlace.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nationality.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MinisterialResolution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinisterialResolution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RollNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RollNumber)
+        </dd>
+
+    </dl>
+
+    @* Remember: Html.BeginForm gets the id from the URI, so no need to use a hidden id field *@
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <b>Nota: Si elimina esta persona, sus trámites se eliminarán automáticamente</b>
+
+        <br>
+        <br>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirmar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver a la Lista", "Index")
+        </div>
+    }
+</div>

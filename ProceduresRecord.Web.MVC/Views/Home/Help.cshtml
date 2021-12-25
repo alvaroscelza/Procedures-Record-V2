@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Ayuda y Tutoriales";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel-body">
+    <p>
+        <strong>Personas:</strong> <br>
+        En la Ventana Personas se pueden crear nuevas personas, modificar o eliminar existentes y <br>
+        acceder a sus trámites. Cada persona tiene: <br>
+        -Nombres y apellidos. <br>
+        -Un número de expediente compuesto por número y año. <br>
+        -Una nacionalidad y un lugar de nacimiento, elegidos de una lista desplegable de países. <br>
+        -Una fecha de nacimiento y fecha de resolución Ministerial, ambas elegibles desde un calendario visual. <br>
+        -Un número de jaque. <br>
+        -Un número de rollo. <br>
+        <br>
+        Al acceder a los trámites de la persona, se puede crear nuevos trámites para esa persona, modificar <br>
+        o eliminar existentes. cada trámite tiene una fecha y una descripción. <br>
+        <br>
+        Todos los usuarios pueden visualizar personas y sus trámites pero sólo usuarios Avanzados o Administradores <br>
+        pueden crear, modificar y eliminar cualquiera de ellos. <br>
+    </p>
+    <br>
+    <p>
+        <strong>Países:</strong> <br>
+        En la Ventana Países se puede crear nuevos países, modificar o eliminar existentes, <br>
+        cada país tiene un nombre que debe ser único (de lo contrario el sistema <br>
+        no lo aceptará). <br>
+        <br>
+        Sólo usuarios Administradores pueden acceder a esta opción. <br>
+    </p>
+    <br>
+    <p>
+        <strong>Usuarios:</strong> <br>
+        En la Ventana Usuarios se puede crear nuevos usuarios, modificar o eliminar existentes, <br>
+        cada usuario tiene un nombre de usuario que debe ser único (de lo contrario el sistema <br>
+        no lo aceptará), y un perfil de usuario, elegido de una lista desplegable, las opciones para <br>
+        estos son: <br>
+        -Básico: Sólo puede realizar consultas sobre Personas y sus Trámites, pero no <br>
+        puede modificar, crear o eliminar nada. <br>
+        -Avanzado: Crea, modifica y elimina Personas y Trámites. <br>
+        -Administrador: Tiene acceso a todas las funcionalidades del Sistema. <br>
+        <br>
+        Sólo usuarios Administradores pueden acceder a esta opción. <br>
+    </p>
+</div>

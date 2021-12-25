@@ -1,0 +1,115 @@
+﻿@model IEnumerable<ProceduresRecord.Web.MVC.Models.Person>
+@using ProceduresRecord.Web.MVC.Models
+@{User loggedUser = (User)Session["user"];}
+
+@{
+    ViewBag.Title = "Personas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (loggedUser.Profile != Profiles.Básico)
+{
+    <p>
+        @Html.ActionLink("Crear", "Create")
+    </p>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="input-group">
+            @Html.DropDownList("SearchOptions", (IEnumerable<SelectListItem>)ViewBag.SearchOptions, new { @id = "searchOptions", @class = "selectpicker" })
+            @Html.TextBox("SearchValue", null, new { @id = "inputPeopleSearch", @class = "form-control hundred-Per-Cent-Max-Width", @placeholder = "Buscar...", @type = "text" })
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+        </div>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Names)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surnames)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecordNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecordYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthPlace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MinisterialResolution)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RollNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Names)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surnames)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecordNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecordYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthPlace.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinisterialResolution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RollNumber)
+            </td>
+            <td>
+                @if (loggedUser.Profile != Profiles.Básico)
+                {
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }) <text>|</text>
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }) <text>|</text>
+                }
+                @Html.ActionLink("Trámites", "Index", "Procedures", new { personId = item.Id }, "")
+            </td>
+        </tr>
+    }
+
+</table>
+
+<!-- Javascript Documents .js -->
+<script type="text/javascript" src="~/Scripts/People/searchOptions.js"></script>
